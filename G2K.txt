@@ -1,0 +1,14 @@
+﻿Clientes...
+User: g2k_8161
+Pass: M47pq998VQfK
+
+Los datos para conectarse por FTP son:
+
+IP: 190.106.146.10
+Usuario: expftp@expodelmueble.com.ar
+Contraseña: Expo!2015_FTP
+
+PhPMyAdmin:
+Link: http://190.106.146.10/pma/
+Usuario: walter
+Contraseña: ClavE1_

@@ -27,6 +27,14 @@ Route::group(['before' => 'auth'], function()
 	Route::get('edit_cliente{id}', 'ClientesController@getEditCliente')->where('id', '[0-9]+');
 	Route::post('edit_cliente', 'ClientesController@update');
 
+	//Clientes 
+	Route::get('register_proveedor', 'ProveedoresController@get_nuevo');
+	Route::post('register_proveedor', 'ProveedoresController@post_nuevo');
+	Route::get('lista_proveedores', 'ProveedoresController@all_proveedores');
+	Route::get('lista_proveedores{id}', 'ProveedoresController@destroy');
+	Route::get('edit_proveedor{id}', 'ProveedoresController@getEditProveedor')->where('id', '[0-9]+');
+	Route::post('edit_proveedor', 'ProveedoresController@update');
+
 	//Articulos
 	Route::get('register_articulo', 'ArticulosController@get_nuevo');
 	Route::post('register_articulo', 'ArticulosController@post_nuevo');
