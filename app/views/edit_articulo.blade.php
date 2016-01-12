@@ -34,18 +34,30 @@
 				  		</div>
 				  	</div>
 				  	<div class="form-group">
-						<div class="col-sm-3">
+						<div class="col-sm-2">
 			  				<p class="help-block margin-bottom-cero"><small>Alto:</small></p>
 			  				<input type="text" class="form-control" placeholder="Alto..." name="alto" id="alto" value=<?php echo $articulo->alto;?>>
 				  		</div>
-						<div class="col-sm-3">
+						<div class="col-sm-2">
 			  				<p class="help-block margin-bottom-cero"><small>Largo: </small></p>
 			  				<input type="text" class="form-control" placeholder="Largo..." name="largo" id="largo" value=<?php echo $articulo->largo;?>>
 				  		</div>
-				  		<div class="col-sm-3">
+				  		<div class="col-sm-2">
 			  				<p class="help-block margin-bottom-cero"><small>Ancho o Profundidad: </small></p>
 			  				<input type="text" class="form-control" placeholder="Ancho o Profundidad..." name="ancho_prof" id="ancho_prof" value=<?php echo $articulo->ancho_prof;?>>
 				  		</div>	
+				  		<div class="col-sm-3">
+			  				<p class="help-block margin-bottom-cero"><small>Proveedor:</small></p>
+			  				<select class="form-control campo" name="proveedor" id="proveedor" data-val="proveedor">
+			  					@foreach ($proveedores as $p)
+			  						@if ($articulo->id_proveedor==$p->id_proveedor)
+										<option value="{{ $p->id_proveedor }}" selected>{{ $p->nom_raz }}</option>
+									@else
+										<option value="{{ $p->id_proveedor }}">{{ $p->nom_raz }}</option>
+									@endif
+		                        @endforeach
+		                    </select>
+				  		</div>
 				  		<div class="col-sm-2">
 			  				<p class="help-block margin-bottom-cero"><small>Rubro:</small></p>
 			  				<select class="form-control campo" name="rubro" id="rubro" data-val="rubro">
@@ -64,11 +76,11 @@
 				  		</div>	  			
 				  	</div>
 				  	<div class="form-group">
-				  		<div class="col-sm-12">
+				  		<!--<div class="col-sm-12">
 							<label for="exampleInputFile">Inserte la fotografía</label>
 							<input type="file" id="image">
-							<!--<p class="help-block">Example block-level help text here.</p>-->
-						</div>
+							<p class="help-block">Example block-level help text here.</p>
+						</div>-->
 				  	</div>
 					<div class="form-group">					
 							<div class="col-sm-12">

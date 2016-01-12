@@ -18,6 +18,7 @@
 			  		<th>Nombre</th>
 			  		<th>Rubro</th>
 			 		<th>Descripcion</th>
+			 		<th>Proveedor</th>
 			 		<th>Alto</th>
 			 		<th>Largo</th>
 			 		<th>Ancho o Prof.</th>
@@ -32,6 +33,7 @@
 					<td>{{ $articulo->nombre }}</td>
 					<td>{{ $articulo->rubro }}</td>
 					<td>{{ $articulo->descripcion }}</td>
+					<td>{{ $articulo->nom_raz }}</td>
 					<td>{{ $articulo->alto }}</td>
 					<td>{{ $articulo->largo }}</td>
 					<td>{{ $articulo->ancho_prof }}</td>

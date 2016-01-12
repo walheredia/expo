@@ -46,5 +46,53 @@
             ->get();
 			return View::make('lista_proveedores')->with('proveedores', $proveedores);
 		}
+		public function getEditProveedor($id_proveedor) {
+			$proveedor = Proveedor::find($id_proveedor);
+			$localidades = Localidad::all();
+			$proveedores = Proveedor::all();
+			if (is_null ($proveedor))
+			{
+			App::abort(404);
+			}
+			return View::make('edit_proveedor')->with('proveedor', $proveedor)
+											->with('localidades',$localidades);
+		}
+		public function update() {
+			$inputs = Input::all();
+			$reglas = array(
+				'nom_raz' => 'required|max:50',
+				'contacto' => 'max:50',
+				'direccion' => 'required',
+				'email' => 'email',
+				'tel' => 'max:50',
+				'nextel' => 'max:50',
+			);
+			$mensajes = array(
+				'required' => 'Campo Obligatorio',
+			);
+			$validar = Validator::make($inputs, $reglas);
+			if($validar->fails())
+			{	
+				Input::flash();
+				return Redirect::back()->withInput()->withErrors($validar);
+			}
+			else
+			{
+				$id_proveedor = Input::get('id_proveedor');
+				$proveedor = Proveedor::find($id_proveedor);
+				
+				$proveedor->nom_raz = Input::get('nom_raz');	
+				$proveedor->contacto = Input::get('contacto');	
+				$proveedor->direccion = Input::get('direccion');	
+				$proveedor->id_localidad = Input::get('localidad');
+				$proveedor->email = Input::get('email');	
+				$proveedor->tel = Input::get('tel');	
+				$proveedor->nextel = Input::get('nextel');
+				$proveedor->web = Input::get('web');	
+
+		        $proveedor->save();
+		        return Redirect::to('lista_proveedores')->with('error', 'El Proveedor ha sido actualizado con Éxito')->withInput();
+			}
+		}
 	}
 ?>

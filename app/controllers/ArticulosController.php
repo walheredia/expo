@@ -3,9 +3,11 @@
 		public function get_nuevo(){
 			$rubros = Rubro::all();
 			$sucursales = Sucursal::all();
+			$proveedores = Proveedor::all();
 
 			return View::make('register_articulo')->with('rubros',$rubros)
-												->with('sucursales',$sucursales);
+												->with('sucursales',$sucursales)
+												->with('proveedores',$proveedores);
 		}
 		public function post_nuevo(){
 			$inputs = Input::all();
@@ -41,9 +43,10 @@
 					$articulo->ancho_prof = Input::get('ancho_prof');			
 					$articulo->id_rubro = Input::get('rubro');
 					$articulo->precio_compra = Input::get('prec_compra');
+					$articulo->id_proveedor = Input::get('proveedor');
 					$articulo->save();
-					$insertedId = $articulo->id;
-
+					$insertedId = $articulo->id_articulo;
+					
 					$stock = new Stock;
 					$stock->id_articulo = $insertedId;
 					$stock->id_sucursal = Input::get('sucursal');
@@ -61,7 +64,8 @@
 		public function all_articles() {
 			$articulos = DB::table('articulos')
             ->join('rubros', 'articulos.id_rubro', '=', 'rubros.id_rubro')
-            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'rubros.id_rubro')
+            ->join('proveedores', 'articulos.id_proveedor', '=', 'proveedores.id_proveedor')
+            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'rubros.id_rubro', 'proveedores.nom_raz')
             ->get();
 			return View::make('lista_articulos')->with('articulos', $articulos);
 		}
@@ -81,12 +85,14 @@
 		public function getEditArticulo($id_articulo) {
 			$articulo = Articulo::find($id_articulo);
 			$rubros = Rubro::all();
+			$proveedores = Proveedor::all();
 			if (is_null ($articulo))
 			{
 			App::abort(404);
 			}
 			return View::make('edit_articulo')->with('articulo', $articulo)
-											->with('rubros', $rubros);
+											->with('rubros', $rubros)
+											->with('proveedores',$proveedores);
 		}
 		public function update() {
 			$inputs = Input::all();
@@ -118,6 +124,7 @@
 				$articulo->largo = Input::get('largo');			
 				$articulo->ancho_prof = Input::get('ancho_prof');			
 				$articulo->id_rubro = Input::get('rubro');
+				$articulo->id_proveedor = Input::get('proveedor');
 		        $articulo->save();
 
 		        $articulos = DB::table('articulos')

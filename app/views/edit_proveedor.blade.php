@@ -20,56 +20,64 @@
 			      </ul>
 			    </div>
 			@endif
-			<form action="{{ URL::asset('register_proveedor') }}" method="POST" class="form-vertical" role="form">
+			<form action="{{ URL::asset('edit_proveedor') }}" method="POST" class="form-vertical" role="form">
 
 				<fieldset class="cool-fieldset">
 					<div class="form-group">
 						<div class="col-sm-6">
 			  				<p class="help-block margin-bottom-cero"><small>Nombre o Razón Social: </small></p>
-			  				<input type="text" class="form-control" placeholder="Nombre o Razón Social..." name="nom_raz" id="nom_raz" value="{{ Input::old('nom_raz') }}">
+			  				<input type="text" class="form-control" placeholder="Nombre o Razón Social..." name="nom_raz" id="nom_raz" value=<?php echo $proveedor->nom_raz;?>>
 				  		</div>
 				  		<div class="col-sm-6">
 			  				<p class="help-block margin-bottom-cero"><small>Nombre de Contacto Directo:</small></p>
-			  				<input type="text" class="form-control" placeholder="Nombre de Contacto Directo..." name="contacto" id="contacto" value="{{ Input::old('contacto') }}">
+			  				<input type="text" class="form-control" placeholder="Nombre de Contacto Directo..." name="contacto" id="contacto" value=<?php echo $proveedor->contacto;?>>
 				  		</div>		  			
 				  	</div>
 				  	<div class="form-group">
 				  		<div class="col-sm-3">
 			  				<p class="help-block margin-bottom-cero"><small>Dirección:</small></p>
-			  				<input type="text" class="form-control" placeholder="Dirección..." name="direccion" id="direccion" value="{{ Input::old('direccion') }}">
+			  				<input type="text" class="form-control" placeholder="Dirección..." name="direccion" id="direccion" value=<?php echo $proveedor->direccion;?>>
 				  		</div>
 				  		<div class="col-sm-3">
 			  				<p class="help-block margin-bottom-cero"><small>Localidad:</small></p>
 			  				<select class="form-control campo" name="localidad" id="localidad" data-val="localidad">
-			  					@foreach ($localidades as $localidad)
-		                          <option value="{{ $localidad->id_localidad }}">{{ $localidad->localidad }}</option>
+			  					@foreach ($localidades as $l)
+			  						@if ($proveedor->id_localidad==$l->id_localidad)
+										<option value="{{ $l->id_localidad }}" selected>{{ $l->localidad }}</option>
+									@else
+										<option value="{{ $l->id_localidad }}">{{ $l->localidad }}</option>
+									@endif
 		                        @endforeach
 		                    </select>
 				  		</div>
 						<div class="col-sm-6">
 			  				<p class="help-block margin-bottom-cero"><small>E-mail:</small></p>
-			  				<input type="email" class="form-control" placeholder="E-mail..." name="email" id="email" value="{{ Input::old('email') }}">
+			  				<input type="email" class="form-control" placeholder="E-mail..." name="email" id="email" value=<?php echo $proveedor->email;?>>
 				  		</div>	  			
 				  	</div>
 				  	<div class="form-group">
 						<div class="col-sm-6">
 			  				<p class="help-block margin-bottom-cero"><small>Teléfono:</small></p>
-			  				<input type="text" class="form-control" placeholder="Teléfono..." name="tel" id="tel" value="{{ Input::old('tel') }}">
+			  				<input type="text" class="form-control" placeholder="Teléfono..." name="tel" id="tel" value=<?php echo $proveedor->tel;?>>
 				  		</div>
 				  		<div class="col-sm-6">
 			  				<p class="help-block margin-bottom-cero"><small>Nextel:</small></p>
-			  				<input type="text" class="form-control" placeholder="Nextel..." name="nextel" id="nextel" value="{{ Input::old('nextel') }}">
+			  				<input type="text" class="form-control" placeholder="Nextel..." name="nextel" id="nextel" value=<?php echo $proveedor->nextel;?>>
 				  		</div>
 				  	</div>
 				  	<div class="form-group">
-						<div class="col-sm-12">
+						<div class="col-sm-11">
 			  				<p class="help-block margin-bottom-cero"><small>Dirección Pág. Web:</small></p>
-			  				<input type="text" class="form-control" placeholder="Pág. Web..." name="web" id="web" value="{{ Input::old('web') }}">
+			  				<input type="text" class="form-control" placeholder="Pág. Web..." name="web" id="web" value=<?php echo $proveedor->web;?>>
+				  		</div>
+				  		<div class="col-sm-1">
+			  				<p class="help-block margin-bottom-cero"><small>ID:</small></p>
+	  						<input type="text" class="form-control" name="id_proveedor" id="id_proveedor" value=<?php echo $proveedor->id_proveedor;?>>
 				  		</div>
 				  	</div>
 					<div class="form-group">					
 							<div class="col-sm-12">
-								<input type="submit" value="Registrar Proveedor" class="btn btn-success form-control">
+								<input type="submit" value="Actualizar Proveedor" class="btn btn-success form-control">
 							</div>
 					</div>							  	
 

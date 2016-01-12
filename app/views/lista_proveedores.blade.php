@@ -37,8 +37,8 @@
 					<td>{{ $p->tel }}</td>
 					<td>{{ $p->nextel }}</td>
 					<td>{{ $p->web }}</td>
-			 		<td><a href="{{ action('ClientesController@getEditCliente', $p->id_proveedor) }}"><span class="glyphicon glyphicon-pencil"></a></span></td>
-					<td><a href="{{ action('ClientesController@destroy', $p->id_proveedor) }}" <span class="glyphicon glyphicon-remove"></span></a></td>
+			 		<td><a href="{{ action('ProveedoresController@getEditProveedor', $p->id_proveedor) }}"><span class="glyphicon glyphicon-pencil"></a></span></td>
+					<td><a href="{{ action('ProveedoresController@destroy', $p->id_proveedor) }}" <span class="glyphicon glyphicon-remove"></span></a></td>
 				</tr>
 				@endforeach
 	  		</tbody>	

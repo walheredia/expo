@@ -65,9 +65,17 @@
 		                        @endforeach
 		                    </select>
 				  		</div>
-				  		<div class="col-sm-6">
+				  		<div class="col-sm-3">
 			  				<p class="help-block margin-bottom-cero"><small>Stock(Cantidad):</small></p>
 			  				<input type="text" class="form-control" placeholder="Stock(Cantidad)" name="stock" id="stock" value="{{ Input::old('stock') }}">
+				  		</div>
+				  		<div class="col-sm-3">
+			  				<p class="help-block margin-bottom-cero"><small>Proveedor:</small></p>
+			  				<select class="form-control campo" name="proveedor" id="proveedor" data-val="proveedor">
+			  					@foreach ($proveedores as $p)
+		                          <option value="{{ $p->id_proveedor }}">{{ $p->nom_raz }}</option>
+		                        @endforeach
+		                    </select>
 				  		</div>
 						<div class="col-sm-3">
 			  				<p class="help-block margin-bottom-cero"><small>Precio de Compra:</small></p>
@@ -75,11 +83,11 @@
 				  		</div>	  			
 				  	</div>
 				  	<div class="form-group">
-				  		<div class="col-sm-12">
+				  		<!--<div class="col-sm-12">
 							<label for="exampleInputFile">Inserte la fotografía</label>
 							<input type="file" id="image">
-							<!--<p class="help-block">Example block-level help text here.</p>-->
-						</div>
+							<p class="help-block">Example block-level help text here.</p>
+						</div>-->
 				  	</div>
 					<div class="form-group">					
 							<div class="col-sm-12">
