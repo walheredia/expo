@@ -37,6 +37,7 @@
 				  		<div class="col-sm-3">
 			  				<p class="help-block margin-bottom-cero"><small>Sucursal:</small></p>
 			  				<select class="form-control campo" name="sucursal" id="sucursal" data-val="sucursal">
+			  					<option value="" selected disabled>Por favor, seleccione</option>
 			  					@foreach ($sucursales as $sucursal)
 		                          <option value="{{ $sucursal->id_sucursal }}">{{ $sucursal->nombre }}</option>
 		                        @endforeach

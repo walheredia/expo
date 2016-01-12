@@ -60,6 +60,7 @@
 				  		<div class="col-sm-3">
 			  				<p class="help-block margin-bottom-cero"><small>Sucursal:</small></p>
 			  				<select class="form-control campo" name="sucursal" id="sucursal" data-val="sucursal">
+			  					<option value="" selected disabled>Por favor, seleccione</option>
 			  					@foreach ($sucursales as $sucursal)
 		                          <option value="{{ $sucursal->id_sucursal }}">{{ $sucursal->nombre }}</option>
 		                        @endforeach
@@ -72,6 +73,7 @@
 				  		<div class="col-sm-3">
 			  				<p class="help-block margin-bottom-cero"><small>Proveedor:</small></p>
 			  				<select class="form-control campo" name="proveedor" id="proveedor" data-val="proveedor">
+			  					<option value="" selected disabled>Por favor, seleccione</option>
 			  					@foreach ($proveedores as $p)
 		                          <option value="{{ $p->id_proveedor }}">{{ $p->nom_raz }}</option>
 		                        @endforeach

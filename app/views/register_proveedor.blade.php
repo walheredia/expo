@@ -41,6 +41,7 @@
 				  		<div class="col-sm-3">
 			  				<p class="help-block margin-bottom-cero"><small>Localidad:</small></p>
 			  				<select class="form-control campo" name="localidad" id="localidad" data-val="localidad">
+			  					<option value="" selected disabled>Por favor, seleccione</option>
 			  					@foreach ($localidades as $localidad)
 		                          <option value="{{ $localidad->id_localidad }}">{{ $localidad->localidad }}</option>
 		                        @endforeach
