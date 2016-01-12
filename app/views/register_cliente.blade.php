@@ -72,11 +72,12 @@
 				  	<div class="form-group">
 						<div class="col-sm-4">
 			  				<p class="help-block margin-bottom-cero"><small>Localidad:</small></p>
-			  				<select class="form-control" name="localidad">
-			  					<option value="1">San Nicolás</option>
-			  					<option value="2">Ramallo</option>
-			  					<option value="3">Rosario</option>
-			  				</select>
+			  				<select class="form-control campo" name="localidad" id="localidad" data-val="localidad">
+			  					<option value="" selected disabled>Por favor, seleccione</option>
+			  					@foreach ($localidades as $localidad)
+		                          <option value="{{ $localidad->id_localidad }}">{{ $localidad->localidad }}</option>
+		                        @endforeach
+		                    </select>
 				  		</div>
 						<div class="col-sm-4">
 			  				<p class="help-block margin-bottom-cero"><small>Teléfono:</small></p>

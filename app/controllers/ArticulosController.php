@@ -18,9 +18,10 @@
 				'largo' => 'required',
 				'ancho_prof' => 'required',
 				'rubro' => 'required|integer',
-				'sucursal' => 'required|integer',
+				'sucursal' => 'required',
 				'stock' => 'required|integer',
 				'prec_compra' => 'required',
+				'proveedor' => 'required',
 			);
 			$mensajes = array(
 				'required' => 'Campo Obligatorio',
