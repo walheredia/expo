@@ -13,6 +13,7 @@
 				'email' => 'email',
 				'tel' => 'max:50',
 				'nextel' => 'max:50',
+				'localidad' => 'required',
 			);
 			$mensajes = array(
 				'required' => 'Campo Obligatorio',

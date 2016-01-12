@@ -2,7 +2,8 @@
 
 	class ClientesController extends BaseController {
 		public function get_nuevo(){
-				return View::make('register_cliente');
+			$localidades = Localidad::all();
+			return View::make('register_cliente')->with('localidades',$localidades);
 		}
 		public function all_clients() {
 			$clients = Cliente::all();
@@ -15,6 +16,7 @@
 				'nombres' => 'required|min:4', 
 				'apellido' => 'required',
 				'email' => 'email|unique:clients,email',
+				'localidad' => 'required',
 			);
 			$mensajes = array(
 				'required' => 'Campo Obligatorio',
