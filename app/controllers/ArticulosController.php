@@ -66,7 +66,9 @@
 			$articulos = DB::table('articulos')
             ->join('rubros', 'articulos.id_rubro', '=', 'rubros.id_rubro')
             ->join('proveedores', 'articulos.id_proveedor', '=', 'proveedores.id_proveedor')
-            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'rubros.id_rubro', 'proveedores.nom_raz')
+            ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
+            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
+            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
             ->get();
 			return View::make('lista_articulos')->with('articulos', $articulos);
 		}
