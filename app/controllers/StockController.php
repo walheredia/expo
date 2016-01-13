@@ -1,8 +1,8 @@
 <?php
 	class StockController extends BaseController {
-		public function get_nuevo(){
+		public function getEditStock(){
 			$sucursales = Sucursal::all();
-			return View::make('register_stock')->with('sucursales',$sucursales);
+			return View::make('edit_stock')->with('sucursales',$sucursales);
 		}
 	}
 ?>

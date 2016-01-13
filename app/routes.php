@@ -54,7 +54,7 @@ Route::group(['before' => 'auth'], function()
 	Route::get('lista_localidades', 'LocalidadesController@all_localidades');
 
 	//Stock
-	Route::get('register_stock', 'StockController@get_nuevo');
+	Route::get('edit_stock', 'StockController@getEditStock');
 	
 });
 

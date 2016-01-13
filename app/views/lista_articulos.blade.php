@@ -24,7 +24,8 @@
 			 		<th>Ancho o Prof.</th>
 			 		<th>Cantidad en Stock</th>
 			 		<th>Sucursal</th>
-			 		<th>Editar</th>
+			 		<th>Editar Stock</th>
+			 		<th>Editar Artículo</th>
 			  		<th>Eliminar</th>
 				</tr>
 			</thead>
@@ -41,6 +42,7 @@
 					<td>{{ $articulo->ancho_prof }}</td>
 					<td>{{ $articulo->cantidad }}</td>
 					<td>{{ $articulo->sucursal }}</td>
+			 		<td><a href="{{ action('StockController@getEditStock', $articulo->id_articulo) }}"><span class="glyphicon glyphicon-edit"></a></span></td>
 			 		<td><a href="{{ action('ArticulosController@getEditArticulo', $articulo->id_articulo) }}"><span class="glyphicon glyphicon-pencil"></a></span></td>
 					<td><a href="{{ action('ArticulosController@destroy', $articulo->id_articulo) }}" <span class="glyphicon glyphicon-remove"></span></a></td>
 				</tr>
