@@ -12,3 +12,9 @@ PhPMyAdmin:
 Link: http://190.106.146.10/pma/
 Usuario: walter
 Contraseña: ClavE1_
+
+
+https://gpanel.fangio.net
+Datos de Acceso:
+Usuario : g2k8161_14128
+Password : qft4xqiy23
