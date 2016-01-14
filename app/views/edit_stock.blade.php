@@ -20,7 +20,7 @@
 			      </ul>
 			    </div>
 			@endif
-			<!--<table class="table table-bordered table-hover" style="font-size: 12px;">
+			<table class="table table-bordered table-hover" style="font-size: 12px;">
 				<thead>
 					<tr>
 				  		<th>Código Articulo</th>
@@ -39,7 +39,7 @@
 					</tr>
 					@endforeach
 		  		</tbody>	
-			</table>-->
+			</table>
 			<form action="{{ URL::asset('edit_stock') }}" method="POST" class="form-vertical" role="form">
 
 				<fieldset class="cool-fieldset">
