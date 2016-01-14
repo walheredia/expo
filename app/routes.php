@@ -55,7 +55,7 @@ Route::group(['before' => 'auth'], function()
 
 	//Stock
 	Route::get('edit_stock{id}', 'StockController@getEditStock')->where('id', '[0-9]+');
-	
+	Route::post('edit_stock', 'StockController@update');
 });
 
 App::missing(function($exception) {

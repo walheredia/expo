@@ -120,7 +120,6 @@
 			{
 				$id_articulo = Input::get('id_articulo');
 				$articulo = Articulo::find($id_articulo);
-				
 				$articulo->nombre = Input::get('nombre');			
 				$articulo->descripcion = Input::get('descripcion');			
 				$articulo->alto = Input::get('alto');			
