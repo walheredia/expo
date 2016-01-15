@@ -62,13 +62,6 @@
 				        </ul>
 			      	</li>
 			      	<li class="dropdown">
-				        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Stock <b class="caret"></b></a>
-				        <ul class="dropdown-menu">
-				  		 	<li><a href="{{ URL::asset('register_stock') }}">Agregar Stock</a></li>
-				  		 	
-				        </ul>
-			      	</li>
-			      	<li class="dropdown">
 				        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Rubros/Localidades <b class="caret"></b></a>
 				        <ul class="dropdown-menu">
 				  		 	<li><a href="{{ URL::asset('register_rubro') }}">Registrar un nuevo Rubro</a></li>

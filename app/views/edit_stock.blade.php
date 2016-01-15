@@ -55,7 +55,15 @@
 						  		</tbody>	
 							</table>
 						</div>
-					<p class="col-sm-12"><small>*Nota: Si en el listado aquí arriba no se muestra el Stock de alguna Sucursal, es porque nunca se ha cargado Stock para dicha sucursal. Para administrar el Stock de cualquier Sucursal, complete los datos requeridos a continuación...</small></p>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+							<div class="panel panel-default">
+							  <div class="panel-body">
+							    <p><small>*Nota: Si en el listado aquí arriba no se muestra el Stock de alguna Sucursal, es porque nunca se ha cargado Stock para dicha sucursal. Para administrar el Stock de cualquier Sucursal, complete los datos requeridos a continuación...</small></p>
+							  </div>
+							</div>
+						</div>
 					</div>
 					<h2 class="row text-center">Datos a modificar</h2>
 					<div class="form-group">

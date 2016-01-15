@@ -69,21 +69,36 @@
             ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
             ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
             ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
+            ->orderby('articulos.id_articulo', 'asc')
             ->get();
 			return View::make('lista_articulos')->with('articulos', $articulos);
 		}
 		public function destroy($id_articulo){
-			$articulo = Articulo::find($id_articulo);	        
-	        if (is_null ($articulo))
-	        {
-	            App::abort(404);
-	        }
-	        $articulo->delete();
-	        $articulos = DB::table('articulos')
-            ->join('rubros', 'articulos.id_rubro', '=', 'rubros.id_rubro')
-            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'rubros.id_rubro')
-            ->get();
-			return View::make('lista_articulos')->with('articulos', $articulos);
+			try {
+				DB::beginTransaction();
+				$articulo = Articulo::find($id_articulo);
+				$articulo_stock = Stock::find($id_articulo);
+		        if (is_null ($articulo))
+		        {
+		            App::abort(404);
+		        }
+		        $articulo_stock->delete();
+		        $articulo->delete();
+		        DB::commit();
+		        $articulos = DB::table('articulos')
+		            ->join('rubros', 'articulos.id_rubro', '=', 'rubros.id_rubro')
+		            ->join('proveedores', 'articulos.id_proveedor', '=', 'proveedores.id_proveedor')
+		            ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
+		            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
+		            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
+		            ->orderby('articulos.id_articulo', 'asc')
+		            ->get();
+				return View::make('lista_articulos')->with('articulos', $articulos);
+			} catch (Exception $e) {
+				DB::rollBack();
+				echo $ex->getMessage();
+			}
+			
 		}
 		public function getEditArticulo($id_articulo) {
 			$articulo = Articulo::find($id_articulo);
