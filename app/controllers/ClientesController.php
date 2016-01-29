@@ -6,7 +6,7 @@
 			return View::make('register_cliente')->with('localidades',$localidades);
 		}
 		public function all_clients() {
-			$clients = Cliente::all();
+			$clients = Cliente::Paginate(25);
 			return View::make('lista_clientes')->with('clients', $clients);
 		}
 		public function post_nuevo()

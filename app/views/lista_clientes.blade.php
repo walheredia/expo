@@ -64,5 +64,8 @@
 	  		</tbody>	
 		</table>
 	</div>
+	<div class="row text-left">
+		<?php echo $clients->links(); ?>
+	</div>
 </div>	
 @stop

@@ -50,5 +50,8 @@
 	  		</tbody>	
 		</table>
 	</div>
+	<div class="row text-left">
+		<?php echo $articulos->links(); ?>
+	</div>
 </div>	
 @stop
