@@ -14,19 +14,19 @@
 		<table class="table table-bordered table-hover" style="font-size: 12px;">
 			<thead>
 				<tr>
-			  		<th>Código Articulo</th>
+			  		<th>Cód. Art.</th>
 			  		<th>Nombre</th>
 			  		<th>Rubro</th>
 			 		<th>Descripcion</th>
 			 		<th>Proveedor</th>
 			 		<th>Alto</th>
 			 		<th>Largo</th>
-			 		<th>Ancho o Prof.</th>
+			 		<th>Ancho/Prof.</th>
 			 		<th>Sucursal</th>
-			 		<th>Cantidad en Stock</th>
+			 		<th>Stock</th>
 			 		<th>Editar Stock</th>
 			 		<th>Editar Artículo</th>
-			  		<th>Eliminar</th>
+			  		<th>Elim.</th>
 				</tr>
 			</thead>
 	  		<tbody>
