@@ -24,14 +24,18 @@
 
 				<fieldset class="cool-fieldset">
 					<div class="form-group">
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 			  				<p class="help-block margin-bottom-cero"><small>Nombre: </small></p>
 			  				<input type="text" class="form-control" placeholder="Nombre..." name="nombre" id="nombre" value=<?php echo $articulo->nombre;?>>
 				  		</div>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 			  				<p class="help-block margin-bottom-cero"><small>Descripción: </small></p>
 			  				<input type="text" class="form-control" placeholder="Descripción..." name="descripcion" id="descripcion" value=<?php echo $articulo->descripcion;?>>
 				  		</div>
+				  		<div class="col-sm-4">
+			  				<p class="help-block margin-bottom-cero"><small>Precio de Venta:</small></p>
+			  				<input type="text" class="form-control" placeholder="Precio de Venta..." name="prec_compra" id="prec_compra" value=<?php echo $articulo->precio_compra;?>>
+				  		</div>	
 				  	</div>
 				  	<div class="form-group">
 						<div class="col-sm-2">

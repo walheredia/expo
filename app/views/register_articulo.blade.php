@@ -80,8 +80,8 @@
 		                    </select>
 				  		</div>
 						<div class="col-sm-3">
-			  				<p class="help-block margin-bottom-cero"><small>Precio de Compra:</small></p>
-			  				<input type="text" class="form-control" placeholder="Precio de Compra..." name="prec_compra" id="prec_compra" value="{{ Input::old('prec_compra') }}">
+			  				<p class="help-block margin-bottom-cero"><small>Precio de Venta:</small></p>
+			  				<input type="text" class="form-control" placeholder="Precio de Venta..." name="prec_compra" id="prec_compra" value="{{ Input::old('prec_compra') }}">
 				  		</div>	  			
 				  	</div>
 				  	<div class="form-group">
