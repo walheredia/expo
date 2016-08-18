@@ -41,7 +41,7 @@
 					<td>{{ $articulo->alto }}</td>
 					<td>{{ $articulo->largo }}</td>
 					<td>{{ $articulo->ancho_prof }}</td>
-					<td>{{ $articulo->prec_compra }}</td>
+					<td>{{ $articulo->precio_compra }}</td>
 					<td>{{ $articulo->sucursal }}</td>
 					<td>{{ $articulo->cantidad }}</td>
 			 		<td><a href="{{ action('StockController@getEditStock', $articulo->id_articulo) }}"><span class="glyphicon glyphicon-edit"></a></span></td>

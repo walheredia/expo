@@ -156,7 +156,7 @@
 	            ->orderby('articulos.id_articulo', 'asc')
 	            ->paginate(20);
 	            
-				return View::make('lista_articulos')->with('articulos', $articulos);
+				return View::make('lista_articulos')->with('articulos', $articulos)
 													->with('error', 'El Artículo ha sido actualizado con Éxito')->withInput();
 			}
 		}
