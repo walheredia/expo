@@ -54,7 +54,7 @@
 	            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 	            ->select('articulos.id_articulo', 'articulos.nombre', 'sucursales.nombre as sucursal', 'stock.cantidad')
 	            ->get();
-				return View::make('edit_stock')->with('ok', 'El usuario ha sido registrado con Éxito')
+				return View::make('edit_stock')->with('ok', 'El Stock se ha actualizado con éxito')
 												->with('sucursales', $sucursales)
 												->with('articulo_id', $articulo_id)
 												->with('articulos', $articulos);

@@ -155,9 +155,8 @@
 	            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
 	            ->orderby('articulos.id_articulo', 'asc')
 	            ->paginate(20);
-	            
 				return View::make('lista_articulos')->with('articulos', $articulos)
-													->with('error', 'El Artículo ha sido actualizado con Éxito')->withInput();
+													->with('error', 'El Artículo ha sido actualizado con Éxito');
 			}
 		}
 

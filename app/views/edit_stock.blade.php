@@ -9,13 +9,14 @@
 		<h1>Datos Actuales de Stock</h1>
 
 		<div class="col-md-10 col-md-offset-1 text-left">
-			@if(Session::has('ok'))
-	            <div class="alert alert-success">
-	              <button type="button" class="close" data-dismiss="alert">&times;</button>
-	                {{ Session::get('ok') }}
-	              </ul>
-	            </div>
-	        @endif
+			@if(isset($ok))
+            <div class="alert alert-success">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ Session::get($ok) }}
+                {{$ok}}
+              </ul>
+            </div>
+        	@endif
 			@if ($errors->any())
 			    <div class="alert alert-danger">
 			      <button type="button" class="close" data-dismiss="alert">&times;</button>

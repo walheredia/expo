@@ -4,10 +4,11 @@
 <div class="container">
 	<div class="row text-center">
 	<h3>Artículos</h3>
-		@if(Session::has('error'))
+		@if(isset($error))
             <div class="alert alert-success">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ Session::get('error') }}
+                {{ Session::get($error) }}
+                {{$error}}
               </ul>
             </div>
         @endif 
