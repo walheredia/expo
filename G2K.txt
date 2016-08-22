@@ -18,3 +18,28 @@ https://gpanel.fangio.net
 Datos de Acceso:
 Usuario : g2k8161_14128
 Password : qft4xqiy23
+
+
+qft4xqiy23
+
+
+expftp@expodelmueble.com.ar
+Expo!2015_FTP
+
+
+Estimado,
+
+El panel donde se encuentra su web es http://mu.fangio.net/
+
+Los datos de acceso son los siguientes.
+
+Usuario: expodelmueble.com.ar
+Contraseña: qft4xqiy23
+
+Su cuenta FTP es la siguiente:
+
+Servidor: 190.106.146.10 o expodelmueble.com.ar
+Usuario: expftp@expodelmueble.com.ar
+Contraseña: Expo!2015_FTP
+
+ 

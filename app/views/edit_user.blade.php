@@ -27,26 +27,26 @@
 					<div class="form-group">
 						<div class="col-sm-6">
 			  				<p class="help-block margin-bottom-cero"><small>Nombre:</small></p>
-			  				<input type="text" class="form-control" placeholder="Nombre..." name="first_name" id="nombre" value=<?php echo $user->first_name;?>>
+			  				<input type="text" class="form-control" placeholder="Nombre..." name="first_name" id="nombre" value="<?php echo $user->first_name;?>">
 				  		</div>
 
 						<div class="col-sm-6">
 			  				<p class="help-block margin-bottom-cero"><small>Apellido:</small></p>
-			  				<input type="text" class="form-control" placeholder="Apellido..." name="last_name" id="apellido" value=<?php echo $user->last_name;?>>
+			  				<input type="text" class="form-control" placeholder="Apellido..." name="last_name" id="apellido" value="<?php echo $user->last_name;?>">
 				  		</div>		  			
 				  	</div>
 
 				  	<div class="form-group">
 						<div class="col-sm-12">
 			  				<p class="help-block margin-bottom-cero"><small>E-mail:</small></p>
-			  				<input type="email" class="form-control" placeholder="E-mail..." name="email" id="email" value=<?php echo $user->email;?>>
+			  				<input type="email" class="form-control" placeholder="E-mail..." name="email" id="email" value="<?php echo $user->email;?>">
 				  		</div>	  			
 				  	</div>
 
 				  	<div class="form-group">
 						<div class="col-sm-12">
 			  				<p class="help-block margin-bottom-cero"><small>Nombre de usuario:</small></p>
-			  				<input type="text" class="form-control" placeholder="Nombre de usuario..." name="username" id="username" value=<?php echo $user->username;?>>
+			  				<input type="text" class="form-control" placeholder="Nombre de usuario..." name="username" id="username" value="<?php echo $user->username;?>">
 				  		</div>	  			
 				  	</div>
 
@@ -84,7 +84,7 @@
 				  		</div>
 				  		<div class="col-sm-2">
 			  				<p class="help-block margin-bottom-cero"><small>ID:</small></p>
-	  						<input type="text" class="form-control" name="id" id="id" value=<?php echo $user->id;?>>
+	  						<input type="text" class="form-control" name="id" id="id" value="<?php echo $user->id;?>">
 				  		</div>					  			
 				  	</div>
 					<div class="form-group">					

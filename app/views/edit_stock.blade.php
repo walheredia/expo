@@ -70,7 +70,7 @@
 					<div class="form-group">
 						<div class="col-sm-4">
 			  				<p class="help-block margin-bottom-cero"><small>Código Artículo: </small></p>
-			  				<input type="text" class="form-control" placeholder="Código..." name="id_articulo" id="id_articulo" value=<?php echo $articulo_id;?>>
+			  				<input type="text" class="form-control" placeholder="Código..." name="id_articulo" id="id_articulo" value="<?php echo $articulo_id;?>">
 				  		</div>
 						<div class="col-sm-4">
 			  				<p class="help-block margin-bottom-cero"><small>Sucursal:</small></p>
