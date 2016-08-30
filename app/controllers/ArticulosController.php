@@ -54,7 +54,17 @@
 					$stock->cantidad = Input::get('stock');
 					$stock->save();
 					DB::commit();
-					return Redirect::to('lista_articulos')->with('error', 'El Artículo ha sido registrado con Éxito')->withInput();
+
+					$articulos = DB::table('articulos')
+		            ->join('rubros', 'articulos.id_rubro', '=', 'rubros.id_rubro')
+		            ->join('proveedores', 'articulos.id_proveedor', '=', 'proveedores.id_proveedor')
+		            ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
+		            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
+		            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
+		            ->orderby('articulos.nombre', 'asc')
+		            ->paginate(2);
+					return View::make('lista_articulos')->with('articulos', $articulos)
+														->with('error', 'El Artículo ha sido cargado con Éxito');
 				} catch (Exception $ex) {
 					DB::rollBack();
 					echo $ex->getMessage();
@@ -69,8 +79,8 @@
             ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
             ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
             ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
-            ->orderby('articulos.id_articulo', 'asc')
-            ->paginate(20);
+            ->orderby('articulos.nombre', 'asc')
+            ->paginate(2);
             
 			return View::make('lista_articulos')->with('articulos', $articulos);
 		}
@@ -86,17 +96,19 @@
 		        $articulo_stock->delete();
 		        $articulo->delete();
 		        DB::commit();
+
 		        $articulos = DB::table('articulos')
 	            ->join('rubros', 'articulos.id_rubro', '=', 'rubros.id_rubro')
 	            ->join('proveedores', 'articulos.id_proveedor', '=', 'proveedores.id_proveedor')
 	            ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
 	            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 	            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
-	            ->orderby('articulos.id_articulo', 'asc')
-	            ->paginate(20);
-	            
-			return View::make('lista_articulos')->with('articulos', $articulos);
-			} catch (Exception $e) {
+	            ->orderby('articulos.nombre', 'asc')
+	            ->paginate(2);
+
+	            return View::make('lista_articulos')->with('articulos', $articulos);
+
+			} catch (Exception $ex) {
 				DB::rollBack();
 				echo $ex->getMessage();
 			}
@@ -153,8 +165,8 @@
 	            ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
 	            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 	            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
-	            ->orderby('articulos.id_articulo', 'asc')
-	            ->paginate(20);
+	            ->orderby('articulos.nombre', 'asc')
+	            ->paginate(2);
 				return View::make('lista_articulos')->with('articulos', $articulos)
 													->with('error', 'El Artículo ha sido actualizado con Éxito');
 			}

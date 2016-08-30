@@ -38,8 +38,12 @@ Route::group(['before' => 'auth'], function()
 	//Articulos
 	Route::get('register_articulo', 'ArticulosController@get_nuevo');
 	Route::post('register_articulo', 'ArticulosController@post_nuevo');
+
+	//Route::match(array('get', 'post'), ('lista_articulos', 'ArticulosController@all_articles'));
 	Route::get('lista_articulos', 'ArticulosController@all_articles');
+
 	Route::get('lista_articulos{id_articulo}', 'ArticulosController@destroy');
+
 	Route::get('edit_articulo{id}', 'ArticulosController@getEditArticulo')->where('id', '[0-9]+');
 	Route::post('edit_articulo', 'ArticulosController@update');
 
