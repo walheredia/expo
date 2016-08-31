@@ -62,7 +62,7 @@
 		            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 		            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
 		            ->orderby('articulos.nombre', 'asc')
-		            ->paginate(50);
+		            ->paginate(100);
 					return View::make('lista_articulos')->with('articulos', $articulos)
 														->with('error', 'El Artículo ha sido cargado con Éxito');
 				} catch (Exception $ex) {
@@ -80,7 +80,7 @@
             ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
             ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
             ->orderby('articulos.nombre', 'asc', 'proveedores.nom_raz', 'asc')
-            ->paginate(50);
+            ->paginate(100);
             
 			return View::make('lista_articulos')->with('articulos', $articulos);
 		}
@@ -104,7 +104,7 @@
 	            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 	            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
 	            ->orderby('articulos.nombre', 'asc')
-	            ->paginate(50);
+	            ->paginate(100);
 
 	            return View::make('lista_articulos')->with('articulos', $articulos);
 
@@ -166,7 +166,7 @@
 	            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 	            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
 	            ->orderby('articulos.nombre', 'asc')
-	            ->paginate(50);
+	            ->paginate(100);
 				return View::make('lista_articulos')->with('articulos', $articulos)
 													->with('error', 'El Artículo ha sido actualizado con Éxito');
 			}
