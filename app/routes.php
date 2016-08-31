@@ -40,7 +40,9 @@ Route::group(['before' => 'auth'], function()
 	Route::post('register_articulo', 'ArticulosController@post_nuevo');
 
 	//Route::match(array('get', 'post'), ('lista_articulos', 'ArticulosController@all_articles'));
+	//Route::match(array('GET', 'POST'), 'lista_articulos', array('uses' => 'ArticulosController@all_articles'));
 	Route::get('lista_articulos', 'ArticulosController@all_articles');
+	Route::post('lista_articulos', 'ArticulosController@search_article');
 
 	Route::get('lista_articulos{id_articulo}', 'ArticulosController@destroy');
 

@@ -62,7 +62,7 @@
 		            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 		            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
 		            ->orderby('articulos.nombre', 'asc')
-		            ->paginate(2);
+		            ->paginate(50);
 					return View::make('lista_articulos')->with('articulos', $articulos)
 														->with('error', 'El Artículo ha sido cargado con Éxito');
 				} catch (Exception $ex) {
@@ -79,8 +79,8 @@
             ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
             ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
             ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
-            ->orderby('articulos.nombre', 'asc')
-            ->paginate(2);
+            ->orderby('articulos.nombre', 'asc', 'proveedores.nom_raz', 'asc')
+            ->paginate(50);
             
 			return View::make('lista_articulos')->with('articulos', $articulos);
 		}
@@ -104,7 +104,7 @@
 	            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 	            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
 	            ->orderby('articulos.nombre', 'asc')
-	            ->paginate(2);
+	            ->paginate(50);
 
 	            return View::make('lista_articulos')->with('articulos', $articulos);
 
@@ -166,12 +166,26 @@
 	            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
 	            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
 	            ->orderby('articulos.nombre', 'asc')
-	            ->paginate(2);
+	            ->paginate(50);
 				return View::make('lista_articulos')->with('articulos', $articulos)
 													->with('error', 'El Artículo ha sido actualizado con Éxito');
 			}
 		}
-
+		public function search_article(){
+			$nombre = Input::get('nombre');
+			 $articulos = DB::table('articulos')
+	            ->join('rubros', 'articulos.id_rubro', '=', 'rubros.id_rubro')
+	            ->join('proveedores', 'articulos.id_proveedor', '=', 'proveedores.id_proveedor')
+	            ->join('stock', 'articulos.id_articulo', '=', 'stock.id_articulo')
+	            ->join('sucursales', 'stock.id_sucursal', '=', 'sucursales.id_sucursal')
+	            ->select('articulos.id_articulo', 'rubros.rubro', 'articulos.nombre', 'articulos.descripcion', 'articulos.alto', 'articulos.largo', 'articulos.ancho_prof', 'articulos.precio_compra', 'rubros.id_rubro', 'proveedores.nom_raz', 'stock.cantidad', 'sucursales.nombre as sucursal')
+	            ->where('articulos.nombre', 'LIKE', '%'.$nombre.'%')
+	            ->orderby('articulos.nombre', 'asc')
+	            ->paginate(9000);
+				return View::make('lista_articulos')->with('articulos', $articulos);
+			//$articulos = Articulo::where('nombre', 'LIKE', '%'.$nombre.'%')->get();
+			
+		}
 	}
 ?>
 

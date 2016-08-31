@@ -11,8 +11,15 @@
                 {{$error}}
               </ul>
             </div>
-        @endif 
-		<table class="table table-bordered table-hover" style="font-size: 12px;">
+        @endif
+        <form action="{{ URL::asset('lista_articulos') }}" method="POST" class="navbar-form navbar-right" role="search">
+	      <div class="form-group">
+	        <input type="text" class="form-control" placeholder="Buscar" name="nombre" id="nombre">
+	      </div>
+	      <button type="submit" class="btn btn-success">Buscar</button>
+	    </form>
+        <form class="form-vertical" role="form">
+        	<table class="table table-bordered table-hover" style="font-size: 12px;">
 			<thead>
 				<tr>
 			  		<th>Cód. Art.</th>
@@ -52,9 +59,12 @@
 				@endforeach
 	  		</tbody>	
 		</table>
-	</div>
-	<div class="row text-left">
+		<div class="row text-left">
 		<?php echo $articulos->links(); ?>
+		</div>
+        </form> 
+		
 	</div>
+	
 </div>	
 @stop

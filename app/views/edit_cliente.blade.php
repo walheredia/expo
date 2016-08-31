@@ -26,7 +26,7 @@
 					<div class="form-group">
 						<div class="col-sm-6">
 			  				<p class="help-block margin-bottom-cero"><small>Nombres: </small></p>
-			  				<input type="text" class="form-control" placeholder="Nombres..." name="nombres" id="nombres" value=<"?php echo $cliente->nombres;?>">
+			  				<input type="text" class="form-control" placeholder="Nombres..." name="nombres" id="nombres" value="<?php echo $cliente->nombres;?>">
 				  		</div>
 
 						<div class="col-sm-6">
