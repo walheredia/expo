@@ -43,8 +43,10 @@ Route::group(['before' => 'auth'], function()
 	//Route::match(array('GET', 'POST'), 'lista_articulos', array('uses' => 'ArticulosController@all_articles'));
 	Route::get('lista_articulos', 'ArticulosController@all_articles');
 	Route::post('lista_articulos', 'ArticulosController@search_article');
-
 	Route::get('lista_articulos{id_articulo}', 'ArticulosController@destroy');
+
+	Route::get('actualizar_precio', 'ArticulosController@getactualizar_precios');
+	Route::post('actualizar_precio', 'ArticulosController@actualizar_precios');
 
 	Route::get('edit_articulo{id}', 'ArticulosController@getEditArticulo')->where('id', '[0-9]+');
 	Route::post('edit_articulo', 'ArticulosController@update');

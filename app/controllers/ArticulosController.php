@@ -186,6 +186,64 @@
 			//$articulos = Articulo::where('nombre', 'LIKE', '%'.$nombre.'%')->get();
 			
 		}
+		public function getactualizar_precios(){
+			
+			$proveedores = Proveedor::All();
+			return View::make('actualizar_precio')->with('proveedores', $proveedores);
+		}
+		public function actualizar_precios(){
+			try {
+				DB::beginTransaction();
+				$inputs = Input::all();
+				$reglas = array(
+					'proveedor' => 'required',
+					'porcentaje' => 'required',
+				);
+				$mensajes = array(
+					'required' => 'Campo Obligatorio',
+				);
+				$validar = Validator::make($inputs, $reglas);
+				if($validar->fails())
+				{	
+					Input::flash();
+					return Redirect::back()->withInput()->withErrors($validar);
+				}
+				else
+				{
+					$proveedor = Input::get('proveedor');
+					$porcentaje = Input::get('porcentaje');
+					$prov_nom = Proveedor::find($proveedor);
+
+					$articulos = DB::table('articulos')
+			            ->join('proveedores', 'articulos.id_proveedor', '=', 'proveedores.id_proveedor')
+			            ->where('proveedores.id_proveedor', '=', $proveedor)
+			            ->get();
+		            $cant = count($articulos);
+
+		            foreach ($articulos as $articulo) {
+		            	$ar = Articulo::find($articulo->id_articulo);
+		            	if ($ar->precio_compra == 0) {
+		            		
+		            	} else{
+		            	$ar->precio_compra = $ar->precio_compra + ($porcentaje * $ar->precio_compra);
+		            	$ar->save();
+		            	}
+		            }
+		            DB::commit();
+		            $proveedores = Proveedor::All();
+	            	if ($cant==1) {
+	            		return View::make('actualizar_precio')->with('proveedores', $proveedores)
+														->with('ok', 'El precio de '.$cant.' artículo para el proveedor '.$prov_nom->nom_raz.', ha sido actualizado con éxito');
+	            	} else{
+	            		return View::make('actualizar_precio')->with('proveedores', $proveedores)
+														->with('ok', 'Los precios de '.$cant.' artículos para el proveedor "'.$prov_nom->nom_raz.'", han sido actualizados con éxito');
+	            	}
+				}	
+			} catch (Exception $e) {
+				DB::rollBack();
+				echo $e->getMessage();
+			}
+		}
 	}
 ?>
 

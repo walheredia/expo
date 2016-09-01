@@ -52,6 +52,7 @@
 				        <ul class="dropdown-menu">
 				  		 	<li><a href="{{ URL::asset('register_articulo') }}">Registrar un nuevo Artículo</a></li>
 				  		 	<li><a href="{{ URL::asset('lista_articulos') }}">Listado de Artículos</a></li>
+				  		 	<li><a href="{{ URL::asset('actualizar_precio') }}">Actualizar precios por Proveedor</a></li>
 				        </ul>
 			      	</li>
 			      	<li class="dropdown">
